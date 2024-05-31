@@ -2,7 +2,7 @@
 -- 白名单表
 local whiteList = {
     ["ab_laoye"] = true,
-    ["Xbfsgn"] = true
+    ["Xbfsgn"] = true,
 }
 
 -- 加载白名单
