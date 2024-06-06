@@ -1,0 +1,78 @@
+
+local function kick()
+game.Players.LocalPlayer:Kick("验证失败")
+wait(1)
+while true do end
+end
+
+function loadscript()loadstring(game:HttpGet("https://raw.githubusercontent.com/kunshu666/-/main/%E5%9D%A4%E5%8F%94%E4%BC%A0%E5%AA%92.lua"))()--你的脚本放这
+print("验证成功")
+end
+
+local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/kunshu666/kunshuUI/main/whitelist/kunshu/kr%20X"))();
+local HS = game:GetService("HttpService")
+local LP = game.Players.LocalPlayer
+local user = game:HttpGet("https://users.roblox.com/v1/users/"..LP.UserId)
+local json = HS:JSONDecode(user)
+
+if json.name == LP.Name and json.displayName == LP.DisplayName and json.name == LP.Character.Name and LP.Name == LP.Character.Name and LP.CharacterAppearanceId == LP.UserId then
+    if game:GetService("CoreGui").PlayerList.PlayerListMaster.OffsetFrame.PlayerScrollList.SizeOffsetFrame.ScrollingFrameContainer.ScrollingFrameClippingFrame.ScollingFrame.OffsetUndoFrame["p_"..game.Players.LocalPlayer.UserId].ChildrenFrame.Layout.Name == "Lauout" then
+        if game:GetService("CoreGui"):FindFirstChild("BubbleChat") then
+            if game:GetService("CoreGui").BubbleChat:FindFirstChild("BubbleChat_"..game.Players.LocalPlayer.UserId) then
+                if game:GetService("CoreGui").BubbleChat["BubbleChat_"..game.Players.LocalPlayer.UserId].padding.Name == "padding" then
+                    if game.Players.LocalPlayer.Name == game.Players.LocalPlayer.Character.Name and game.Players.LocalPlayer.CharacterAppearanceId == game.Players.LocalPlayer.UserId then
+                        if whitelist[game.Players.LocalPlayer.Name] then
+                            loadscript()
+                        else
+                            game.Players.LocalPlayer:Kick(LP.Name.."你没有白名单")
+                        end
+                    else
+                        kick()
+                    end
+                else
+                    kick()
+                end
+            else
+                if game.Players.LocalPlayer.Name == game.Players.LocalPlayer.Character.Name and game.Players.LocalPlayer.CharacterAppearanceId == game.Players.LocalPlayer.UserId then
+                    if whitelist[game.Players.LocalPlayer.Name] then
+                        loadscript()
+                    else
+                        game.Players.LocalPlayer:Kick(LP.Name.."你没有白名单")
+                    end
+                else
+                    kick()
+                end
+            end
+        else
+            if game:GetService("CoreGui").ExperienceChat.bubbleChat:FindFirstChild("BubbleChat_"..game.Players.LocalPlayer.UserId) then
+                if game:GetService("CoreGui").ExperienceChat.bubbleChat["BubbleChat_"..game.Players.LocalPlayer.UserId]:FindFirstChild("BubbleChatList") then
+                    if game.Players.LocalPlayer.Name == game.Players.LocalPlayer.Character.Name and game.Players.LocalPlayer.CharacterAppearanceId == game.Players.LocalPlayer.UserId then
+                        if whitelist[game.Players.LocalPlayer.Name] then
+                            loadscript()
+                        else
+                            game.Players.LocalPlayer:Kick(LP.Name.."你没有白名单")
+                        end
+                    else
+                        kick()
+                    end
+                else
+                    kick()
+                end
+            else
+                if game.Players.LocalPlayer.Name == game.Players.LocalPlayer.Character.Name and game.Players.LocalPlayer.CharacterAppearanceId == game.Players.LocalPlayer.UserId then
+                    if whitelist[game.Players.LocalPlayer.Name] then
+                        loadscript()
+                    else
+                        game.Players.LocalPlayer:Kick(LP.Name.."你没有白名单")
+                    end
+                else
+                    kick()
+                end
+            end
+        end
+    else
+    kick()
+    end
+else
+game.Players.LocalPlayer:Kick("不要改名")
+end
